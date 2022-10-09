@@ -4,75 +4,55 @@ import no.hvl.dat100ptc.TODO;
 
 public class GPSPoint {
 
-	// TODO - objektvariable
-		
+	// Objektvariabler
+	private int    time;
+	private double latitude;
+	private double longitude;
+	private double elevation;
+
+	// Konstruktør funksjon
 	public GPSPoint(int time, double latitude, double longitude, double elevation) {
-
-		// TODO - konstruktør
-
-		// Fjern linjene med throw new etterhvert som metodene implementeres
-		throw new UnsupportedOperationException(TODO.construtor("GPSPoint"));
-
+		this.time      = time;
+		this.latitude  = latitude;
+		this.longitude = longitude;
+		this.elevation = elevation;
 	}
 
-	// TODO - get/set metoder
+	// Hent/sett-metoder
 	public int getTime() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		return this.time;
 	}
 
 	public void setTime(int time) {
-				
-		throw new UnsupportedOperationException(TODO.method());
-
+		this.time = time;
 	}
 
 	public double getLatitude() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		return this.latitude;
 	}
 
 	public void setLatitude(double latitude) {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		this.latitude = latitude;
 	}
 
 	public double getLongitude() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		return this.longitude;
 	}
 
 	public void setLongitude(double longitude) {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		this.longitude = longitude;
 	}
 
 	public double getElevation() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		return elevation;
 	}
 
 	public void setElevation(double elevation) {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		this.elevation = elevation;
 	}
-	
+
+	// Til tekststreng metode
 	public String toString() {
-		
-		String str;
-		
-		// TODO - start
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - slutt
-		
+		return this.time + " (" + this.latitude + "," + this.longitude + ") " + this.elevation + "\n";
 	}
 }
