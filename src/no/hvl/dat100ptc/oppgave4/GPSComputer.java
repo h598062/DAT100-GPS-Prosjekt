@@ -8,9 +8,12 @@ import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
 import no.hvl.dat100ptc.oppgave3.GPSUtils;
 
 public class GPSComputer {
-	
-	private GPSPoint[] gpspoints;
-	
+
+	// conversion factor m/s to miles per hour
+	public static  double     MS     = 2.236936;
+	private static double     WEIGHT = 80.0;
+	private        GPSPoint[] gpspoints;
+
 	public GPSComputer(String filename) {
 
 		GPSData gpsdata = GPSDataFileReader.readGPSFile(filename);
@@ -21,11 +24,11 @@ public class GPSComputer {
 	public GPSComputer(GPSPoint[] gpspoints) {
 		this.gpspoints = gpspoints;
 	}
-	
+
 	public GPSPoint[] getGPSPoints() {
 		return this.gpspoints;
 	}
-	
+
 	// beregn total distances (i meter)
 	public double totalDistance() {
 
@@ -33,8 +36,8 @@ public class GPSComputer {
 
 		for (int i = 0; i < gpspoints.length; i++) {
 			if (i != gpspoints.length - 1) {
-				
-				distance += GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
+
+				distance += GPSUtils.distance(gpspoints[i], gpspoints[i + 1]);
 			}
 		}
 		return distance;
@@ -44,13 +47,16 @@ public class GPSComputer {
 	public double totalElevation() {
 
 		double elevation = 0;
+		double prev      = gpspoints[0].getElevation();
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
-
+		for (GPSPoint gpspoint : gpspoints) {
+			double e = gpspoint.getElevation();
+			if (prev < e) {
+				elevation += e - prev;
+			}
+			prev = e;
+		}
+		return elevation;
 	}
 
 	// beregn total tiden for hele turen (i sekunder)
@@ -59,41 +65,16 @@ public class GPSComputer {
 		throw new UnsupportedOperationException(TODO.method());
 
 	}
-		
+
 	// beregn gjennomsnitshastighets mellom hver av gps punktene
-
 	public double[] speeds() {
-		
+
 		// TODO - START		// OPPGAVE - START
-		
+
 		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
 
-	}
-	
-	public double maxSpeed() {
-		
-		double maxspeed = 0;
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
-		
-	}
-
-	public double averageSpeed() {
-
-		double average = 0;
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
-		
 	}
 
 	/*
@@ -105,8 +86,29 @@ public class GPSComputer {
 	 * bicycling, >20 mph, racing, not drafting 16.0
 	 */
 
-	// conversion factor m/s to miles per hour
-	public static double MS = 2.236936;
+	public double maxSpeed() {
+
+		double maxspeed = 0;
+
+		// TODO - START
+
+		throw new UnsupportedOperationException(TODO.method());
+
+		// TODO - SLUTT
+
+	}
+
+	public double averageSpeed() {
+
+		double average = 0;
+
+		// TODO - START
+
+		throw new UnsupportedOperationException(TODO.method());
+
+		// TODO - SLUTT
+
+	}
 
 	// beregn kcal gitt weight og tid der kjøres med en gitt hastighet
 	public double kcal(double weight, int secs, double speed) {
@@ -114,15 +116,15 @@ public class GPSComputer {
 		double kcal;
 
 		// MET: Metabolic equivalent of task angir (kcal x kg-1 x h-1)
-		double met = 0;		
+		double met      = 0;
 		double speedmph = speed * MS;
 
 		// TODO - START
-		
+
 		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
-		
+
 	}
 
 	public double totalKcal(double weight) {
@@ -130,15 +132,13 @@ public class GPSComputer {
 		double totalkcal = 0;
 
 		// TODO - START
-		
+
 		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
-		
+
 	}
-	
-	private static double WEIGHT = 80.0;
-	
+
 	public void displayStatistics() {
 
 		System.out.println("==============================================");
@@ -146,9 +146,9 @@ public class GPSComputer {
 		// TODO - START
 
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 		// TODO - SLUTT
-		
+
 	}
 
 }
