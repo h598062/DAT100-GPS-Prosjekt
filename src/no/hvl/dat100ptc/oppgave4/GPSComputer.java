@@ -10,9 +10,9 @@ import no.hvl.dat100ptc.oppgave3.GPSUtils;
 public class GPSComputer {
 
 	// conversion factor m/s to miles per hour
-	public static  double     MS     = 2.236936;
-	private static double     WEIGHT = 80.0;
-	private        GPSPoint[] gpspoints;
+	public static double MS = 2.236936;
+	private static double WEIGHT = 80.0;
+	private GPSPoint[] gpspoints;
 
 	public GPSComputer(String filename) {
 
@@ -47,7 +47,7 @@ public class GPSComputer {
 	public double totalElevation() {
 
 		double elevation = 0;
-		double prev      = gpspoints[0].getElevation();
+		double prev = gpspoints[0].getElevation();
 
 		for (GPSPoint gpspoint : gpspoints) {
 			double e = gpspoint.getElevation();
@@ -62,14 +62,19 @@ public class GPSComputer {
 	// beregn total tiden for hele turen (i sekunder)
 	public int totalTime() {
 
-		throw new UnsupportedOperationException(TODO.method());
+		int time = 0;
 
+		for (int i = 0; i < gpspoints.length; i++) {
+			time += gpspoints[i].getTime();
+			// Sluttpunkt tid - startpunkt tid
+		}
+		return time;
 	}
 
 	// beregn gjennomsnitshastighets mellom hver av gps punktene
 	public double[] speeds() {
 
-		// TODO - START		// OPPGAVE - START
+		// TODO - START // OPPGAVE - START
 
 		throw new UnsupportedOperationException(TODO.method());
 
@@ -78,12 +83,12 @@ public class GPSComputer {
 	}
 
 	/*
-	 * bicycling, <10 mph, leisure, to work or for pleasure 4.0 bicycling,
-	 * general 8.0 bicycling, 10-11.9 mph, leisure, slow, light effort 6.0
-	 * bicycling, 12-13.9 mph, leisure, moderate effort 8.0 bicycling, 14-15.9
-	 * mph, racing or leisure, fast, vigorous effort 10.0 bicycling, 16-19 mph,
-	 * racing/not drafting or >19 mph drafting, very fast, racing general 12.0
-	 * bicycling, >20 mph, racing, not drafting 16.0
+	 * bicycling, <10 mph, leisure, to work or for pleasure 4.0 bicycling, general
+	 * 8.0 bicycling, 10-11.9 mph, leisure, slow, light effort 6.0 bicycling,
+	 * 12-13.9 mph, leisure, moderate effort 8.0 bicycling, 14-15.9 mph, racing or
+	 * leisure, fast, vigorous effort 10.0 bicycling, 16-19 mph, racing/not drafting
+	 * or >19 mph drafting, very fast, racing general 12.0 bicycling, >20 mph,
+	 * racing, not drafting 16.0
 	 */
 
 	public double maxSpeed() {
@@ -116,7 +121,7 @@ public class GPSComputer {
 		double kcal;
 
 		// MET: Metabolic equivalent of task angir (kcal x kg-1 x h-1)
-		double met      = 0;
+		double met = 0;
 		double speedmph = speed * MS;
 
 		// TODO - START
