@@ -10,13 +10,13 @@ import no.hvl.dat100ptc.oppgave4.GPSComputer;
 
 public class ShowRoute extends EasyGraphics {
 
-	private static int MARGIN = 50;
+	private static int MARGIN   = 50;
 	private static int MAPXSIZE = 800;
 	private static int MAPYSIZE = 800;
 
-	private GPSPoint[] gpspoints;
+	private GPSPoint[]  gpspoints;
 	private GPSComputer gpscomputer;
-	
+
 	public ShowRoute() {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
@@ -35,7 +35,7 @@ public class ShowRoute extends EasyGraphics {
 		makeWindow("Route", MAPXSIZE + 2 * MARGIN, MAPYSIZE + 2 * MARGIN);
 
 		showRouteMap(MARGIN + MAPYSIZE);
-		
+
 		showStatistics();
 	}
 
@@ -45,45 +45,39 @@ public class ShowRoute extends EasyGraphics {
 		double maxlon = GPSUtils.findMax(GPSUtils.getLongitudes(gpspoints));
 		double minlon = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
 
-		double xstep = MAPXSIZE / (Math.abs(maxlon - minlon)); 
+		double xstep = MAPXSIZE / (Math.abs(maxlon - minlon));
 
 		return xstep;
 	}
 
 	// antall y-pixels per breddegrad
 	public double ystep() {
-	
-		double ystep;
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
 
-		// TODO - SLUTT
-		
+		double maxlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
+
+		double ystep = MAPYSIZE / Math.abs(maxlat - minlat);
+
+		return ystep;
 	}
 
 	public void showRouteMap(int ybase) {
-
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
+		double xstep = this.xstep();
+		double ystep = this.ystep();
+		System.out.println("xstep: " + xstep + " ystep: " + ystep);
+		setColor(0, 255, 0);
+		// TODO gjøre resten av oppgaven
 	}
 
 	public void showStatistics() {
 
 		int TEXTDISTANCE = 20;
 
-		setColor(0,0,0);
-		setFont("Courier",12);
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT;
+		setColor(0, 0, 0);
+		setFont("Courier", 12);
+
+		// TODO gjøre resten av oppgaven
+
 	}
 
 }
