@@ -34,26 +34,23 @@ public class GPSDataConverter {
 
 	}
 
-	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
+	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr,
+	                               String elevationStr) {
 
 		GPSPoint gpspoint;
 
-		// TODO - START ;
-		
 		int time = toSeconds(timeStr);
 		// 2017-08-13T08:52:26.000Z","60.385390","5.217217","61.9"
-		
+
 		double latitude = Double.parseDouble(latitudeStr);
-		
+
 		double longitude = Double.parseDouble(longitudeStr);
-		
+
 		double elevation = Double.parseDouble(elevationStr);
 
 		gpspoint = new GPSPoint(time, latitude, longitude, elevation);
-		
-		return gpspoint;
-		// OPPGAVE - SLUTT ;
 
+		return gpspoint;
 	}
 
 }
