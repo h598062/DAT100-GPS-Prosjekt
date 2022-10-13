@@ -1,6 +1,5 @@
 package no.hvl.dat100ptc.oppgave2;
 
-import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
 public class GPSDataConverter {
@@ -10,7 +9,7 @@ public class GPSDataConverter {
 	// Eksempel - tidsinformasjon (som String): 2017-08-13T08:52:26.000Z
 	// skal omregnes til sekunder (som int): 8 * 60 * 60 + 52 * 60 + 26
 
-	private static int TIME_STARTINDEX = 11; // posisjon for start av tidspunkt i timestr
+	private static final int TIME_STARTINDEX = 11; // posisjon for start av tidspunkt i timestr
 
 	public static int toSeconds(String timestr) {
 		// Gjør String om til sekunder
@@ -34,8 +33,9 @@ public class GPSDataConverter {
 
 	}
 
-	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr,
-	                               String elevationStr) {
+	public static GPSPoint convert(
+			String timeStr, String latitudeStr, String longitudeStr,
+			String elevationStr) {
 
 		GPSPoint gpspoint;
 

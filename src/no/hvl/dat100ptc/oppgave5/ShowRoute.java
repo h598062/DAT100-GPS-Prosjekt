@@ -9,9 +9,9 @@ import javax.swing.*;
 
 public class ShowRoute extends EasyGraphics {
 
-	private static int MARGIN   = 50;
-	private static int MAPXSIZE = 800;
-	private static int MAPYSIZE = 800;
+	private static final int MARGIN   = 50;
+	private static final int MAPXSIZE = 800;
+	private static final int MAPYSIZE = 800;
 
 	private GPSPoint[]  gpspoints;
 	private GPSComputer gpscomputer;
@@ -112,11 +112,11 @@ public class ShowRoute extends EasyGraphics {
 
 	public void showStatistics() {
 
-		int TEXTDISTANCE = 20;
+		final int TEXTDISTANCE = 20;
 
 		setColor(0, 0, 0);
 		// må bruke en monospace font for at tekst skal lines opp
-		setFont("Consolas", 12);
+		setFont("Consolas", 16);
 
 		String stringTime = String.format("%-15s:", "Total Time") +
 		                    GPSUtils.formatTime(gpscomputer.totalTime()) +
@@ -134,11 +134,11 @@ public class ShowRoute extends EasyGraphics {
 		                      " kcal\n";
 
 		drawString(stringTime, MARGIN, MARGIN);
-		drawString(stringDistance, MARGIN, MARGIN + 14);
-		drawString(stringElevation, MARGIN, MARGIN + 14 * 2);
-		drawString(stringMaxSpeed, MARGIN, MARGIN + 14 * 3);
-		drawString(stringAvgSpeed, MARGIN, MARGIN + 14 * 4);
-		drawString(stringEnergy, MARGIN, MARGIN + 14 * 5);
+		drawString(stringDistance, MARGIN, MARGIN + TEXTDISTANCE);
+		drawString(stringElevation, MARGIN, MARGIN + TEXTDISTANCE * 2);
+		drawString(stringMaxSpeed, MARGIN, MARGIN + TEXTDISTANCE * 3);
+		drawString(stringAvgSpeed, MARGIN, MARGIN + TEXTDISTANCE * 4);
+		drawString(stringEnergy, MARGIN, MARGIN + TEXTDISTANCE * 5);
 
 	}
 

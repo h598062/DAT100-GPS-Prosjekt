@@ -8,9 +8,9 @@ import no.hvl.dat100ptc.oppgave3.GPSUtils;
 public class GPSComputer {
 
 	// conversion factor m/s to miles per hour
-	public static  double     MS     = 2.236936;
-	private static double     WEIGHT = 80.0;
-	private        GPSPoint[] gpspoints;
+	public static final  double     MS     = 2.236936;
+	private static final double     WEIGHT = 80.0;
+	private              GPSPoint[] gpspoints;
 
 	public GPSComputer(String filename) {
 

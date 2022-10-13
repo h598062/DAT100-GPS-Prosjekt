@@ -1,16 +1,15 @@
 package no.hvl.dat100ptc.oppgave2;
 
-import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
 public class GPSData {
 
-	private GPSPoint[] gpspoints;
-	protected int antall = 0;
+	protected int        antall = 0;
+	private   GPSPoint[] gpspoints;
 
 	public GPSData(int n) {
 		this.gpspoints = new GPSPoint[n];
-		antall = 0;
+		antall         = 0;
 	}
 
 	public GPSPoint[] getGPSPoints() {
