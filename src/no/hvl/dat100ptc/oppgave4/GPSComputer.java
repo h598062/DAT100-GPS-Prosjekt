@@ -1,9 +1,7 @@
 package no.hvl.dat100ptc.oppgave4;
 
-import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import no.hvl.dat100ptc.oppgave2.GPSData;
-import no.hvl.dat100ptc.oppgave2.GPSDataConverter;
 import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
 import no.hvl.dat100ptc.oppgave3.GPSUtils;
 
@@ -23,6 +21,11 @@ public class GPSComputer {
 
 	public GPSComputer(GPSPoint[] gpspoints) {
 		this.gpspoints = gpspoints;
+	}
+
+	// m¨åtte lage en getter for å hente ut vekt variabelen
+	public static double getWEIGHT() {
+		return WEIGHT;
 	}
 
 	public GPSPoint[] getGPSPoints() {
@@ -145,5 +148,4 @@ public class GPSComputer {
 		System.out.println(GPSUtils.formatDouble(this.totalKcal(WEIGHT)) + " kcal");
 		System.out.println("==============================================");
 	}
-
 }
